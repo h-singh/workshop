@@ -23,11 +23,37 @@ const reducers = {
                 counter: state.counter - (action.downBy ? action.downBy : 1)
             }
         }
+        /*
+        if(action.type === 'RAND') {
+            let r = ~~(Math.random() * 10);
+            r = r % 2 === 0 ? r : -r;
+            console.log(r);
+            return {
+                ...state,
+                counter: state.counter + r
+            }
+        }*/
         return state;
     }
 };
 
 const middlewares = [];
+
+/*const middleware = store => next => action => {
+    if(action.type === 'SUB') {
+        console.log('Sub=Action', action);
+    }
+    next(action);
+};
+
+middlewares.push(applyMiddleware(middleware));
+*/
+
+//setInterval(() => {
+    //store.dispatch({type: 'SUB'});
+//}, 1000);
+
+//const f=function(store) { return function(next) { return function(action) { next(action); }}}
 
 console.log('Creating store');
 export const store = createStore(

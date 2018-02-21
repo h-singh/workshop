@@ -7,6 +7,7 @@ class Root extends React.Component {
         super(props);
         this.handleOnSub = this.handleOnSub.bind(this);
         this.handleOnAdd = this.handleOnAdd.bind(this);
+        this.handleOnRandom = this.handleOnRandom.bind(this);
         console.log('My Props', this.props);
         console.log('My State', this.state);
     }
@@ -24,6 +25,10 @@ class Root extends React.Component {
         this.props.dispatch({type: 'SUB'});
     }
 
+    handleOnRandom() {
+        this.props.dispatch({type: 'RAND'});
+    }
+
     render() {
         const counter = this.state && this.state.counter || 'NA';
         return (<div>
@@ -31,6 +36,7 @@ class Root extends React.Component {
             <button onClick={this.handleOnAdd} style={{width: '80px', height: '25px'}}>+</button>
             <button onClick={this.handleOnSub} style={{width: '80px', height: '25px'}}>-</button>
         </div>);
+        //<button onClick={this.handleOnRandom} style={{width: '80px', height: '25px'}}>Random</button>
     }
 
     componentWillReceiveProps(nextProps) {
